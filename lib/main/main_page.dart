@@ -2,6 +2,7 @@ import 'package:bike/cart/cart_page.dart';
 import 'package:bike/doc/doc_page.dart';
 import 'package:bike/home/home_page.dart';
 import 'package:bike/main/widgets/bottom_item_widget.dart';
+import 'package:bike/main/widgets/bottom_modal.dart';
 import 'package:bike/main/widgets/custom_bottom_nav_bar.dart';
 import 'package:bike/map/map_page.dart';
 import 'package:bike/profile/profile_page.dart';
@@ -18,6 +19,8 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   final pageController = PageController();
   final currentPageIndex = ValueNotifier(0);
+  bool description = true;
+  bool specification = false;
 
   @override
   void dispose() {
@@ -71,6 +74,15 @@ class _MainPageState extends State<MainPage> {
                     BottomItemWidget(
                       onTap: () {
                         pageController.jumpToPage(2);
+                        showModalBottomSheet(
+                          backgroundColor: const Color(0xFF353F54),
+                          context: context,
+                          builder: (BuildContext context) {
+                            return BottomModal(
+                                description: description,
+                                specification: specification);
+                          },
+                        );
                       },
                       iconSelected: AppIcons.menuCartSelected.path,
                       iconUnselected: AppIcons.menuCartUnselected.path,

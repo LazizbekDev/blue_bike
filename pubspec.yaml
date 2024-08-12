@@ -25,6 +25,10 @@ flutter:
   assets:
     - assets/fonts/
     - assets/icons/
+    - assets/images/rectangle.png
+    - assets/images/bike_image.png
+    - assets/images/sport_bike.png
+    - assets/images/helmet.png
 
   fonts:
     - family: Poppins
